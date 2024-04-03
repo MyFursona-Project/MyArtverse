@@ -4,7 +4,12 @@
     "es2021": true,
     "browser": true
   },
-  "extends": ["next", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended"
+  ],
   "plugins": ["import", "unused-imports", "@stylistic"],
   "rules": {
     "no-var": "error",

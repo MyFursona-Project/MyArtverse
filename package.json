@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "dotenv -- turbo dev --filter=website --no-daemon",
     "dev:widget": "dotenv -- turbo dev --filter=widget --no-daemon",
+    "storybook": "turbo dev --filter=storybook --no-daemon",
     "build": "turbo build --filter=website",
     "build:all": "turbo build --concurrency 3",
     "format:check": "prettier --check .",
