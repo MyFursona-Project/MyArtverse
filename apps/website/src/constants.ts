@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 
 export const emailRegex =
   /^[^@#$%^&*()_+=\[{\\};:<>|\s,\/?]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/

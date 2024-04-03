@@ -1,5 +1,5 @@
 {
-  "name": "@myfursona-internal/tsconfig",
+  "name": "@mav-internal/tsconfig",
   "version": "0.0.0",
   "private": true,
   "license": "Apache-2.0"

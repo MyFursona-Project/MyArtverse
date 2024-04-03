@@ -6,7 +6,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "myfursona-client",
+    "productName": "myartverse-client",
     "version": "0.0.0"
   },
   "tauri": {
@@ -33,7 +33,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.myfursona.client",
+      "identifier": "com.myartverse.client",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",

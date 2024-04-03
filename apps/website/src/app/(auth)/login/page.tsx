@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import dynamic from "next/dynamic"
 import { redirect } from "next/navigation"
 import { fetchUserData } from "@/utils/api"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import AuthWall from "../AuthWall"
 
 const LoginForm = dynamic(() => import("./LoginForm"))

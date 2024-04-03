@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import { MyFursonaIcon } from "../icons"
 import { Badge } from "../ui/Badges"
 

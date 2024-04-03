@@ -1,11 +1,11 @@
-import "@myfursona/biro-ui/styles/globals.scss"
+import "@mav/ui/styles/globals.scss"
 import "react-quill/dist/quill.snow.css"
 import type { Metadata, Viewport } from "next"
 import dynamic from "next/dynamic"
 import { Inter, Open_Sans } from "next/font/google"
 import { NoJSReminder, SkipNav } from "@/components/base"
 import cn from "@/utils/cn"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import Analytics from "./Analytics"
 import PreconnectResources from "./preconnect-resources"
 

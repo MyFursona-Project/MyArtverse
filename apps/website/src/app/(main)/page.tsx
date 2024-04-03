@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { config } from "@/constants"
 import { fetchUserData } from "@/utils/api"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 
 const title = `${BRAND} — a place where everyfur belongs!`
 const description = config.description

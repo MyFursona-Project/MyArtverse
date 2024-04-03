@@ -1,4 +1,4 @@
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import { LuAlertTriangle } from "react-icons/lu"
 
 export default function NoJSReminder() {

@@ -32,8 +32,8 @@
           "mdx/*",
           "next/**",
           "react-*/**",
-          "@myfursona/biro-ui/**",
-          "@myfursona-internal/**",
+          "@mav/ui/**",
+          "@mav-internal/**",
           "**/assets/*"
         ]
       }

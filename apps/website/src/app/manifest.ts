@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

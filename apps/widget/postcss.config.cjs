@@ -1,1 +1,1 @@
-module.exports = require("@myfursona-internal/config/postcss.config")
+module.exports = require("@mav-internal/config/postcss.config")

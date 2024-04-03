@@ -1,5 +1,5 @@
 {
-  "name": "@myfursona/desktop",
+  "name": "@myartverse/desktop",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,14 +16,14 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@myfursona/biro-ui": "*",
+    "@mav/ui": "*",
     "@tauri-apps/api": "^1.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@myfursona-internal/config": "*",
-    "@myfursona-internal/tsconfig": "*",
+    "@mav-internal/config": "*",
+    "@mav-internal/tsconfig": "*",
     "@tauri-apps/cli": "^1.5.8",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",

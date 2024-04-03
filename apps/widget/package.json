@@ -1,5 +1,5 @@
 {
-  "name": "@myfursona/widget",
+  "name": "@myartverse/widget",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@myfursona/biro-ui": "*",
+    "@mav/ui": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@myfursona-internal/config": "*",
-    "@myfursona-internal/tsconfig": "*",
+    "@mav-internal/config": "*",
+    "@mav-internal/tsconfig": "*",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react-swc": "^3.5.0",

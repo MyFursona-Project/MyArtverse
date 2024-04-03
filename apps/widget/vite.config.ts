@@ -8,6 +8,6 @@ export default defineConfig({
     port: 4321
   },
   optimizeDeps: {
-    include: ["@myfursona/biro-ui/**"]
+    include: ["@mav/ui/**"]
   }
 })

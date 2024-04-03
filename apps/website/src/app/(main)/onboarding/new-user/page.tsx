@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { fetchUserData } from "@/utils/api"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import CreateProfileForm from "./CreateProfileForm"
 
 export const metadata: Metadata = {

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { MyFursonaIcon } from "@/components/icons"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import { type AnimationProps, motion } from "framer-motion"
 
 export default function NavbarLogo() {

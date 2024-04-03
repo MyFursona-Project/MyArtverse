@@ -5,7 +5,7 @@ import { defineConfig } from "vite"
 export default defineConfig(async () => ({
   plugins: [react()],
   optimizeDeps: {
-    include: ["@myfursona/biro-ui/**"]
+    include: ["@mav/ui/**"]
   },
   clearScreen: false,
   server: {

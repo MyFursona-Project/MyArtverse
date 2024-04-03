@@ -8,7 +8,7 @@ export default function Portal({
   style?: React.CSSProperties
 }) {
   return createPortal(
-    <div id="myfursona-portal" style={style}>
+    <div id="myartverse-portal" style={style}>
       {children}
     </div>,
     document.body

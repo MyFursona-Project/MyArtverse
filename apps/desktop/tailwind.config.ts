@@ -1,3 +1,3 @@
-import twConfig from "@myfursona-internal/config/tailwind-client-only"
+import twConfig from "@mav-internal/config/tailwind-client-only"
 
 export default twConfig

@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss"
-import myfursonaPreset from "@myfursona-internal/config/tailwind.config"
+import myfursonaPreset from "@mav-internal/config/tailwind.config"
 import defaultTheme from "tailwindcss/defaultTheme"
 
 export default {
@@ -7,7 +7,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     "../../packages/ui/src/**/*.{ts,tsx}",
-    "../../node_modules/@myfursona/biro-ui/src/**/*.{ts,tsx}"
+    "../../node_modules/@mav/ui/src/**/*.{ts,tsx}"
   ],
   theme: {
     extend: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { MFImage, Note } from "@/components/ui"
 import Comments from "@/components/ui/Comments"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import ArtworkDetails from "./ArtworkDetails"
 
 export async function generateMetadata(): Promise<Metadata> {

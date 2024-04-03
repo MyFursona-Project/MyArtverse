@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { MarginClamp } from "@/components/ui"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import { LuPalette as Palette } from "react-icons/lu"
 
 // TODO get user data from Jotai global store

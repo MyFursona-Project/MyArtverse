@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 import { fetchUser } from "@/utils/api"
-import { BRAND } from "@myfursona-internal/config"
+import { BRAND } from "@mav-internal/config"
 import type { SlugRouteProps } from "@/types/utils"
 import DynamicLayout from "../DynamicLayout"
 
