@@ -1,3 +1,5 @@
+"use client"
+
 import FolderItem from "./FolderItem"
 import FolderShelf from "./FolderShelf"
 import FolderView from "./FolderView"
