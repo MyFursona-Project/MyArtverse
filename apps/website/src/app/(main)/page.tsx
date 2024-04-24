@@ -1,7 +1,7 @@
-import { Metadata } from "next"
-import LandingHero from "@/components/landing/LandingHero"
-import LandingIntegration from "@/components/landing/LandingIntegration"
+import type { Metadata } from "next"
+import { redirect } from "next/navigation"
 import { config } from "@/constants"
+import { fetchUserData } from "@/utils/api"
 import { BRAND } from "@myfursona-internal/config"
 
 const title = `${BRAND} — a place where everyfur belongs!`
@@ -19,11 +19,17 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Home() {
+export default async function Home() {
+  const user = await fetchUserData().catch(() => {})
+  if (user) redirect("/browse")
+
   return (
     <>
-      <LandingHero />
-      <LandingIntegration />
+      <div className="w-full p-8">
+        <div className="border-separator  rounded-md border border-dashed px-6 py-20 text-center text-lg">
+          Front page needs a redesign, this is only temporary
+        </div>
+      </div>
     </>
   )
 }

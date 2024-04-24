@@ -3,9 +3,10 @@
 ## Project maintainers
 
 - [Jason Diaz Jimenez](https://github.com/VulpoTheDev) - project lead
-- [Kerby Keith Aquino](https://github.com/kuroji-fusky) - project lead, UI/UX design
 
 ## Contributors
 
-- [Beta Folf](https://github.com/Beta-Folf)
-- [LinkTheCoder](https://github.com/LinkTheCoder)
+- [Kerby Keith Aquino](https://github.com/kuroji-fusky) - frontend, ui/ux design, former project lead
+- [LinkTheCoder](https://github.com/LinkTheCoder) - frontend
+- [Nebula Animations](https://twitter.com/nebulaanimation) - ui/ux design, branding
+- [Beta Folf](https://github.com/Beta-Folf) - frontend

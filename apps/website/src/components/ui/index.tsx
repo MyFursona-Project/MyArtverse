@@ -1,10 +1,11 @@
-import BuiLink from "./BuiLink"
+/* eslint-disable import/no-internal-modules */
+import Author from "./Author"
 import Carousel from "./Carousel"
 import EmptySection from "./EmptySection"
 import Fieldset from "./Fieldset"
 import FolderView from "./Folders"
 import Group from "./Group"
-import Comment from "./Group/Comment"
+import Hyperlink from "./Hyperlink"
 import Field from "./Layouts/Field"
 import GridResponsive from "./Layouts/GridResponsive"
 import ItemIterator from "./Layouts/ItemIterator"
@@ -18,9 +19,10 @@ import Switch from "./Switch"
 import Tabs from "./Tabs"
 
 export {
+  Author,
   ItemIterator,
   MFImage,
-  BuiLink,
+  Hyperlink,
   EmptySection,
   Modal,
   Note,
@@ -34,6 +36,5 @@ export {
   MarginClamp,
   GridResponsive,
   Group,
-  Comment,
   Field
 }

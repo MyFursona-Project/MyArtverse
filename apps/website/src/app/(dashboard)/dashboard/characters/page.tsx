@@ -1,7 +1,13 @@
-import DashboardTitle from "@/utils/DashboardTitle"
+import type { Metadata } from "next"
+import { apiWithAuth, fetchSelfCharacters } from "@/utils/api"
+import type { Character } from "@/types/characters"
+import CharacterView from "./CharacterView"
 
-export const metadata = DashboardTitle("Characters")
+export const metadata: Metadata = {
+  title: "Characters"
+}
 
-export default function CharacterPage() {
-  return <div>characters page</div>
+export default async function CharacterPage() {
+  const characters = await fetchSelfCharacters()
+  return <CharacterView characters={characters} />
 }

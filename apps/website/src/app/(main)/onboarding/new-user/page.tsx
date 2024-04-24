@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { useRouter } from "next/navigation"
 import { fetchUserData } from "@/utils/api"
 import { BRAND } from "@myfursona-internal/config"
 import CreateProfileForm from "./CreateProfileForm"

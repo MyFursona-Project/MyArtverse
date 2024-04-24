@@ -1,10 +1,17 @@
-import FormWithProgress from "./FormWithProgress"
-import FormWrapper from "./FormWrapper"
+import Checkbox from "./Checkbox"
+import FieldAttribute from "./FieldAttribute"
 import InputField from "./InputField"
-import SubmitButton from "./SubmitButton"
+import RichTextField from "./RichTextField"
+import SearchBox from "./SearchBox"
+import SelectField from "./SelectField"
+import FormWithProgress from "./_FormWithProgress"
 
-export { InputField, FormWithProgress }
-export default Object.assign(FormWrapper, {
-  Input: InputField,
-  SubmitButton
-})
+export {
+  Checkbox,
+  InputField,
+  FormWithProgress,
+  FieldAttribute,
+  RichTextField,
+  SearchBox,
+  SelectField
+}

@@ -1,8 +1,11 @@
 "use client"
 
+/* eslint-disable import/no-internal-modules */
 import Link from "next/link"
 import { Fragment, useCallback, useEffect } from "react"
-import { useSidebarContext } from "@/context"
+import { sidebarToggle } from "@/atoms"
+import { motion } from "framer-motion"
+import { useAtom } from "jotai"
 import {
   LuAlertTriangle as AlertTriangleIcon,
   LuBox as BoxIcon,
@@ -45,38 +48,44 @@ export default function Sidebar() {
     }
   ]
 
-  const { sidebarState: isSidebarOpen, setSidebarState } = useSidebarContext()
+  const [isSidebarOpen, setSidebarState] = useAtom(sidebarToggle)
 
-  const toggleSidebar = useCallback(() => {
-    setSidebarState(!isSidebarOpen)
-  }, [setSidebarState, isSidebarOpen])
+  const toggleSidebar = useCallback(
+    () => setSidebarState(!isSidebarOpen),
+    [setSidebarState, isSidebarOpen]
+  )
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (isSidebarOpen && e.key === "Escape") {
-        toggleSidebar()
-      }
+      if (isSidebarOpen && e.key === "Escape") toggleSidebar()
     }
 
     window.addEventListener("keydown", handleKeyDown)
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown)
-    }
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [toggleSidebar, isSidebarOpen])
+
+  const fmDuration = {
+    duration: 0.2
+  }
 
   return (
     <Overlay state={isSidebarOpen} toggler={toggleSidebar}>
-      <aside
-        className="bg-context-menu fixed inset-0 right-[unset] flex w-full flex-col transition-none ease-out md:w-[325px] md:transition-transform md:duration-300"
-        style={{
-          transform: isSidebarOpen ? "translate3d(0,0,0)" : "translate3d(-100%,0,0)"
-        }}
+      <motion.div
+        className="bg-context-menu fixed inset-0 right-[unset] flex w-full flex-col ease-out md:w-[325px]"
+        initial={{ x: "-100%", display: "none" }}
+        animate={
+          isSidebarOpen
+            ? { x: 0, display: "block", transition: { ...fmDuration, ease: "easeOut" } }
+            : {
+                x: "-100%",
+                transition: { ...fmDuration, ease: "easeIn" },
+                transitionEnd: { display: "none" }
+              }
+        }
       >
         <div className="flex w-full items-center gap-x-2.5 px-5 py-4">
-          <Button variant="secondary" iconOnly onClick={toggleSidebar}>
-            <XIcon size={20} />
-          </Button>
+          <Button variant="tritery" icon={<XIcon size={20} />} onClick={toggleSidebar} />
           <Link href="/" aria-label="Home" title="Home">
             <MyFursonaIcon />
           </Link>
@@ -89,7 +98,7 @@ export default function Sidebar() {
                   <Menu.Item
                     key={index}
                     name={item.name}
-                    prefix={<item.icon size={20} />}
+                    prefixIcon={<item.icon size={20} />}
                     href="/"
                   />
                 ))}
@@ -98,7 +107,7 @@ export default function Sidebar() {
             </Fragment>
           ))}
         </div>
-      </aside>
+      </motion.div>
     </Overlay>
   )
 }

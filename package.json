@@ -17,60 +17,14 @@
     "build:all": "turbo build --concurrency 3",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "prepare": "husky || true"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "prepare": "husky || true",
+    "knip": "knip"
   },
   "lint-staged": {
     "**/*.{js,ts,tsx,md,mdx,json}": [
       "prettier --write .",
       "eslint . --quiet"
     ]
-  },
-  "prettier": {
-    "semi": false,
-    "printWidth": 90,
-    "endOfLine": "lf",
-    "tabWidth": 2,
-    "useTabs": false,
-    "trailingComma": "none",
-    "plugins": [
-      "@trivago/prettier-plugin-sort-imports",
-      "prettier-plugin-tailwindcss"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "./apps/website/tailwind.config.ts",
-          "**/types/*.ts"
-        ],
-        "options": {
-          "printWidth": 180
-        }
-      },
-      {
-        "files": [
-          "./apps/website/src/components/**/index.tsx"
-        ],
-        "options": {
-          "printWidth": 50
-        }
-      }
-    ],
-    "importOrder": [
-      ".scss$|.css$",
-      "next|^next/(.*)",
-      "react$|react-dom",
-      "<THIRD_PARTY_MODULES>",
-      "^@/types/(.*)$",
-      "^hooks/(.*)$",
-      "^components/(.*)$",
-      "^[./]"
-    ],
-    "importOrderSortSpecifiers": true
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.6.3",
@@ -82,8 +36,10 @@
     "dotenv-cli": "^7.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-unused-imports": "^3.1.0",
     "husky": "^9.0.0",
+    "knip": "^5.1.4",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.11",
