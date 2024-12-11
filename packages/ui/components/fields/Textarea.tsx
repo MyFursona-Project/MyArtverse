@@ -10,7 +10,7 @@ import { useMemoizeA11yLabel } from "./fields.utils"
 
 type PickedTextareaProps = Pick<
   ReactHTMLElement<"textarea">,
-  "placeholder" | "required" | "value" | "readOnly" | "onKeyDown" | "onClick" | "onBlur"
+  "placeholder" | "required" | "value" | "readOnly" | "onKeyDown" | "onClick" | "onBlur" | "className" | "spellCheck"
 >
 
 interface TextAreaProps extends PickedTextareaProps, MAVFields {
@@ -32,6 +32,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, Partial<TextAreaProps>>((props,
     charLimit,
     placeholder,
     readOnly,
+    className,
+    spellCheck,
     ...eventHandlers
   } = props
 
@@ -52,11 +54,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, Partial<TextAreaProps>>((props,
         <textarea
           ref={ref}
           aria-labelledby={inputName ? uniqueId : undefined}
-          className={cn("text-700 border-500 bg-100 w-full rounded-md px-3.5 py-2")}
+          className={cn("text-700 border-500 bg-100 w-full rounded-md px-3.5 py-2 text-sm", className)}
           id={uniqueId}
           name={uniqueId}
           placeholder={placeholder}
           readOnly={readOnly}
+          spellCheck={spellCheck}
           title=""
           {...eventHandlers}
         />

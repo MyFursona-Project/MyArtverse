@@ -5,6 +5,7 @@ import {
   type Component,
   type ElementType,
   type FC,
+  type ReactElement,
   type ReactNode,
   isValidElement
 } from "react"
@@ -20,27 +21,26 @@ type ExtendElementType = ElementType & { name: string }
  * @param allowedComponents An array of allowed components to be passed
  */
 export function useValidateChildrenComponents<
-  C extends ReactNode,
-  RC extends FC | Component
->(childrenProp: C, allowedComponents: RC[]) {
+  ValidChildren extends ReactNode,
+  AllowedComponents extends FC | Component
+>(childrenProp: ValidChildren, allowedComponents: AllowedComponents[]) {
   return Children.map(childrenProp, (child) => {
     const isValidChildElement = isValidElement(child)
 
     if (
-      !isValidChildElement ||
-      !allowedComponents.some((allowedType) => child.type === allowedType)
-    ) {
-      const allowedNames = allowedComponents
-        .map((type) => (type as ExtendElementType).name || type.toString())
-        .join(", ")
+      isValidChildElement ||
+      allowedComponents.some((allowedType) => (child as ReactElement).type === allowedType)
+    )
+      return child
 
-      const invalidChildName = isValidChildElement && (child.type as ExtendElementType).name
+    const allowedNames = allowedComponents
+      .map((type) => (type as ExtendElementType).name || type.toString())
+      .join(", ")
 
-      throw new Error(
-        `Component '${invalidChildName}' is not allowed. The allowed components are: ${allowedNames}.`
-      )
-    }
+    const invalidChildName = isValidChildElement && (child.type as ExtendElementType).name
 
-    return child
+    throw new Error(
+      `Component '${invalidChildName}' is not allowed. The allowed components are: ${allowedNames}.`
+    )
   })
 }
