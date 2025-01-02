@@ -4,7 +4,20 @@
     "es2021": true,
     "browser": true
   },
-  "extends": ["next", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    ".next/",
+    "apps/web/public/*.js",
+    "apps/desktop/src-tauri/target/release/build",
+    ".tsbuildinfo",
+    "NOTICE",
+    "AUTHORS.md",
+    "README.md",
+    "TODO.md"
+  ],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "parser": "@typescript-eslint/parser",
   "plugins": ["import", "unused-imports", "@stylistic"],
   "rules": {
     "no-var": "error",
@@ -17,7 +30,10 @@
     ],
     "no-duplicate-imports": "error",
     "max-depth": ["error", 3],
-    "unused-imports/no-unused-imports": "warn",
+
+    "@typescript-eslint/no-unused-vars": "off",
+
+    "unused-imports/no-unused-imports": "off",
     "import/no-deprecated": "warn",
     "import/no-duplicates": "error",
     "import/no-relative-packages": "error",
@@ -31,15 +47,12 @@
           "mdx/*",
           "next/**",
           "react-*/**",
-          "@myfursona/biro-ui/**",
-          "@myfursona-internal/**",
+          "@mav/**",
           "**/assets/*"
         ]
       }
     ],
-    "react/no-unescaped-entities": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
@@ -104,37 +117,36 @@
       }
     ]
   },
-  "parser": "@typescript-eslint/parser",
+  "settings": {
+    "next": {
+      "rootDir": ["apps/web/"]
+    }
+  },
   "overrides": [
     {
-      "files": ["apps/website/src/**", "apps/widget/src/**", "apps/desktop/src/**"],
+      "files": ["apps/web/**"],
+      "extends": ["next/core-web-vitals"]
+    },
+    {
+      "files": ["apps/**/*.tsx", "packages/**/*.tsx"],
       "rules": {
         "react/iframe-missing-sandbox": "warn",
         "react/no-deprecated": "warn",
-        "react/jsx-no-script-url": "error"
+        "react/jsx-no-script-url": "error",
+        "react/no-unescaped-entities": "off"
       }
     },
     {
-      "files": ["apps/website/src/app/**", "apps/website/src/components/**"],
+      "files": ["apps/web/**.tsx"],
       "rules": {
-        "@next/next/no-img-element": "off",
-        "react/forbid-elements": [
-          "error",
-          {
-            "forbid": [
-              {
-                "element": "img",
-                "message": "use <MFImage> as a better alternative"
-              }
-            ]
-          }
-        ]
+        "@next/next/no-img-element": "off"
+      }
+    },
+    {
+      "files": ["packages/ui/*.tsx"],
+      "rules": {
+        "import/no-internal-modules": "off"
       }
     }
-  ],
-  "settings": {
-    "next": {
-      "rootDir": ["apps/website/"]
-    }
-  }
+  ]
 }

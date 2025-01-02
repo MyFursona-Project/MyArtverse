@@ -1,23 +1,19 @@
 # ---------------------------------------
 #           GLOBAL GITIGNORE
 # ---------------------------------------
+node_modules/
+.turbo/
 
-node_modules
-.turbo
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-logs
+logs/
 *.log*
 .env
 .env.local
 !.env.example
 
 *.local
+
+.vscode/
+!.vscode/extensions.json
 
 # Tauri/Vite
 dist
@@ -67,3 +63,5 @@ build
 
 # typescript
 *.tsbuildinfo
+
+.vscode

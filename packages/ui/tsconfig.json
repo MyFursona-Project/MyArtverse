@@ -1,5 +1,17 @@
 {
-  "extends": "@myfursona-internal/tsconfig/nextjs.json",
-  "include": ["."],
-  "exclude": ["dist", "node_modules"]
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "jsx": "preserve"
+  }
 }

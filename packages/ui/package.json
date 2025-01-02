@@ -1,24 +1,22 @@
 {
-  "name": "@myfursona/biro-ui",
-  "version": "0.0.1",
-  "private": true,
+  "name": "@mav/ui",
+  "version": "0.0.0",
   "license": "Apache-2.0",
+  "main": "./index.tsx",
+  "private": true,
   "workspaces": {
     "nohoist": [
       "react",
       "react-dom"
     ]
   },
-  "dependencies": {
-    "@fontsource/inter": "^5.0.16",
-    "@fontsource/open-sans": "^5.0.20",
-    "@headlessui/react": "^1.7.17"
-  },
   "devDependencies": {
-    "@myfursona-internal/tsconfig": "*",
-    "@types/react": "^18.2.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
     "class-variance-authority": "^0.7.0",
-    "react": "^18.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.0.3"
   }
 }

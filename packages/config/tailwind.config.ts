@@ -1,15 +1,39 @@
-/* eslint-disable @stylistic/padding-line-between-statements */
 import type { Config } from "tailwindcss"
-import forms from "@tailwindcss/forms"
-import typography from "@tailwindcss/typography"
+import formsPlugin from "@tailwindcss/forms"
+import typographyPlugin from "@tailwindcss/typography"
 
-const PREFIX = "bui"
+const TW_PREFIX = "mav"
+const COLORS = {
+  GLOBAL: [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "mute",
+    "subtext",
+    "skeleton",
+    "separator",
+    "alert",
+    "warning",
+    "info",
+    "success",
+    "hyperlink",
+    ["alert-hl", "alert-highlight"],
+    ["warning-hl", "warning-highlight"],
+    ["info-hl", "info-highlight"],
+    ["success-hl", "success-highlight"]
+  ],
+  OVERRIDE: ["context-menu", "active", "active-invert"]
+}
 
 const iterateColorVars = (
   baseVariable: string,
   colors: (string | string[])[]
 ): { [x: string]: string } => {
-  const colorTmpl = `"{0}": "hsla(var(--${PREFIX}-{1}), var(${baseVariable}, 1))"`
+  const colorTmpl = `"{0}": "hsla(var(--${TW_PREFIX}-{1}), var(${baseVariable}, 1))"`
 
   const fmtColorStr = (...args: string[]) => {
     return colorTmpl.replace(/{([0-9]+)}/g, (match, index) => {
@@ -26,61 +50,32 @@ const iterateColorVars = (
   return JSON.parse(`{${parseCols}}`)
 }
 
-const GLOBAL_COLORS = [
-  "100",
-  "200",
-  "300",
-  "400",
-  "500",
-  "600",
-  "700",
-  "mute",
-  "subtext",
-  "skeleton",
-  "separator",
-  "error",
-  "warning",
-  "info",
-  "success",
-  "hyperlink",
-  ["error-hl", "error-highlight"],
-  ["warning-hl", "warning-highlight"],
-  ["info-hl", "info-highlight"],
-  ["success-hl", "success-highlight"]
-]
-const OVERRIDE_COLORS = ["context-menu", "active"]
-
-const customStyles = {
-  unset: {
-    unset: "unset"
-  },
-  gridResizable: {
-    resizable: "minmax(0, 1fr) auto"
-  }
-} as const
+const gridResizable = {
+  resizable: "minmax(0, 1fr) auto"
+}
 
 export default {
   content: [],
+  experimental: {
+    optimizeUniversalDefaults: true
+  },
   darkMode: "class",
   theme: {
     extend: {
-      gridTemplateRows: customStyles.gridResizable,
-      gridTemplateColumns: customStyles.gridResizable,
+      gridTemplateRows: gridResizable,
+      gridTemplateColumns: gridResizable,
       fontFamily: {
-        inter: "var(--font-inter)",
-        "open-sans": "var(--font-open-sans)"
+        inter: "var(--font-inter)"
       },
       colors: {
         current: "currentColor",
-        ...iterateColorVars("--tw-bg-opacity", [...GLOBAL_COLORS, ...OVERRIDE_COLORS])
+        ...iterateColorVars("--tw-bg-opacity", [...COLORS.GLOBAL, ...COLORS.OVERRIDE])
       },
       borderColor: {
         current: "currentColor",
-        ...iterateColorVars("--tw-border-opacity", GLOBAL_COLORS)
-      },
-      spacing: customStyles.unset,
-      inset: customStyles.unset
+        ...iterateColorVars("--tw-border-opacity", COLORS.GLOBAL)
+      }
     }
   },
-  plugins: [forms, typography]
+  plugins: [formsPlugin, typographyPlugin]
 } satisfies Config

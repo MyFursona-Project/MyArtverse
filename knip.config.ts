@@ -1,17 +1,25 @@
-import { type KnipConfig } from "knip"
+import type { KnipConfig } from "knip"
 
 export default {
   eslint: {
-    config: [".eslintrc.json"]
+    config: [".eslintrc.cjs"]
   },
   entry: ["apps/**/src/**/*.{ts,tsx}!", "packages/**/*.{js,ts,tsx}!"],
   project: ["**/*.{ts,tsx}!"],
   rules: {
     files: "warn",
-    dependencies: "warn",
-    exports: "warn",
+    exports: "error",
     types: "warn",
-    nsExports: "warn",
-    nsTypes: "error"
-  }
+    dependencies: "warn",
+    unlisted: "off",
+    devDependencies: "off",
+    binaries: "off",
+    duplicates: "error"
+  },
+  ignore: [
+    // Symlink file to SidebarGlobal.constants.ts
+    "apps/web/src/app/(main)/(settings)/settings/setting-routes.ts",
+
+    "packages/ui/tailwind.config.ts"
+  ]
 } satisfies KnipConfig

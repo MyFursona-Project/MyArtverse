@@ -1,12 +1,11 @@
 {
-  "name": "@myfursona-internal/config",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@mav/config",
+  "version": "1.0.0",
   "license": "Apache-2.0",
+  "private": true,
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
-    "cssnano": "^6.0.3",
-    "tailwindcss": "^3.3.3"
+    "@tailwindcss/typography": "^0.5.13",
+    "tailwindcss": "^3.4.3"
   }
 }

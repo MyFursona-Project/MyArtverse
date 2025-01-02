@@ -1,9 +1,5 @@
 {
-  "extends": "@myfursona-internal/tsconfig/vite.json",
-  "include": ["src"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "extends": "@mav/config/tsconfig.shared.json",
+  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

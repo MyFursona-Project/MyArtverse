@@ -1,9 +1,0 @@
-dist/
-apps/website/public/sw.js
-apps/website/public/workbox-*
-apps/website/public/worker-*
-.tsbuildinfo
-NOTICE
-AUTHORS.md
-README.md
-TODO.md
