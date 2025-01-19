@@ -35,14 +35,16 @@ export default function DropZone({
   const fileUploadRef = useRef<React.ElementRef<"input">>(null)
 
   useEffect(() => {
+    const controller = new AbortController()
+
     const handleDragOver = (e: DragEvent) => {
       e.preventDefault()
     }
 
-    window.addEventListener("dragover", handleDragOver)
+    window.addEventListener("dragover", handleDragOver, { signal: controller.signal })
 
     return () => {
-      window.removeEventListener("dragover", handleDragOver)
+      controller.abort()
     }
   }, [])
 
