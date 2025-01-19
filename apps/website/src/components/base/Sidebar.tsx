@@ -144,19 +144,13 @@ export default function Sidebar({ user }: { user: UserType }) {
   )
 
   useEffect(() => {
-    const controller = new AbortController()
-
-    window.addEventListener(
-      "keydown",
-      (e) => {
-        if (isSidebarOpen && e.key === "Escape") toggleSidebar()
-      },
-      { signal: controller.signal }
-    )
-
-    return () => {
-      controller.abort()
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (isSidebarOpen && e.key === "Escape") toggleSidebar()
     }
+
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [toggleSidebar, isSidebarOpen])
 
   const fmDuration = {

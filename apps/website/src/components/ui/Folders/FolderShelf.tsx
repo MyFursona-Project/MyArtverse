@@ -30,8 +30,6 @@ export default function FolderShelf({
     const resizeArea = resizableRef.current
     const folderView = folderViewRef.current
 
-    const controller = new AbortController()
-
     const handleShelfDrag = (e: MouseEvent) => {
       if (!isDragging) return
 
@@ -43,20 +41,22 @@ export default function FolderShelf({
       setFolderWidth(calcMousePosition)
     }
 
+    window.addEventListener("mousemove", handleShelfDrag)
+
     const resetPosition = () => setFolderWidth(DEFAULT_WIDTH)
     const setDraggingTrue = () => setIsDragging(true)
     const setDraggingFalse = () => setIsDragging(false)
 
-    window.addEventListener("mousemove", handleShelfDrag, { signal: controller.signal })
-    resizeArea.addEventListener("dblclick", resetPosition, { signal: controller.signal })
-    resizeArea.addEventListener("mousedown", setDraggingTrue, {
-      signal: controller.signal
-    })
+    resizeArea.addEventListener("dblclick", resetPosition)
 
-    window.addEventListener("mouseup", setDraggingFalse, { signal: controller.signal })
+    resizeArea.addEventListener("mousedown", setDraggingTrue)
+    window.addEventListener("mouseup", setDraggingFalse)
 
     return () => {
-      controller.abort()
+      window.removeEventListener("mousemove", handleShelfDrag)
+      resizeArea.removeEventListener("dblclick", resetPosition)
+      resizeArea.removeEventListener("mousedown", setDraggingTrue)
+      window.removeEventListener("mouseup", setDraggingFalse)
     }
   }, [isDragging, setIsDragging, setFolderWidth])
 
