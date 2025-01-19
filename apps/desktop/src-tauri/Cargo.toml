@@ -1,23 +1,38 @@
 [package]
-name = "myfursona-client"
+name = "myartverse-desktop"
 version = "0.0.0"
-description = "The MyFursona client"
+description = "A Tauri App"
 authors = ["Kerby Keith Aquino"]
-license = "Apache-2.0"
-repository = "https://github.com/MyFursona-Project/MyFursona"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [build-dependencies]
-tauri-build = { version = "1.5", features = [] }
+tauri-build = { version = "1", features = [] }
 
 [dependencies]
-tauri = { version = "1.5", features = [ "fs-all", "window-set-title", "clipboard-all", "notification-all", "shell-open"] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
+tauri = { version = "1", features = [ "notification-all", "clipboard-all",
+  "window-set-maximizable",
+  "window-hide",
+  "window-unminimize",
+  "window-set-position",
+  "window-minimize",
+  "window-start-dragging",
+  "window-close",
+  "window-unmaximize",
+  "window-show",
+  "window-set-decorations",
+  "window-request-user-attention",
+  "window-set-title",
+  "window-maximize",
+  "window-set-skip-taskbar",
+  "window-set-closable",
+  "window-set-resizable",
+  "shell-open",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
 
 [features]
-# this feature is used for production builds or when `devPath` points to the filesystem
-# DO NOT REMOVE!!
+# This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
 custom-protocol = ["tauri/custom-protocol"]

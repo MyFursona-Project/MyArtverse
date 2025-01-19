@@ -6,34 +6,60 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "myfursona-client",
+    "productName": "myartverse-desktop",
     "version": "0.0.0"
   },
   "tauri": {
     "allowlist": {
       "all": false,
-      "fs": {
-        "all": true
-      },
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "maximize": true,
+        "minimize": true,
+        "requestUserAttention": true,
+        "setClosable": true,
+        "setDecorations": true,
+        "setFullscreen": false,
+        "setMaximizable": true,
+        "setMinimizable": false,
+        "setPosition": true,
+        "setResizable": true,
+        "setSkipTaskbar": true,
+        "setTitle": true,
+        "show": true,
+        "startDragging": true,
+        "unmaximize": true,
+        "unminimize": true
       },
       "notification": {
         "all": true
       },
       "clipboard": {
         "all": true
-      },
-      "window": {
-        "all": false,
-        "setTitle": true
       }
+    },
+
+    "windows": [
+      {
+        "title": "MyArtverse",
+        "decorations": false,
+        "width": 1280,
+        "height": 720
+      }
+    ],
+    "security": {
+      "csp": null
     },
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.myfursona.client",
+      "identifier": "com.myartverse.dev",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -41,19 +67,6 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ]
-    },
-    "security": {
-      "csp": null
-    },
-    "windows": [
-      {
-        "fullscreen": false,
-        "resizable": true,
-        "title": "MyFursona",
-        "width": 1200,
-        "height": 720,
-        "center": true
-      }
-    ]
+    }
   }
 }

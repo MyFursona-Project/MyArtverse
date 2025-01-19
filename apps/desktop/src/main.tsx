@@ -1,11 +1,14 @@
-import "@myfursona/biro-ui/styles/fonts.scss"
-import "@myfursona/biro-ui/styles/globals.scss"
-import { StrictMode } from "react"
+import "@fontsource/inter/700.css"
+import "@mav/shared/styles/index.scss"
+import React from "react"
 import ReactDOM from "react-dom/client"
+import "@fontsource/inter"
 import App from "./App"
+import { TitleBar } from "./components"
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <TitleBar />
     <App />
-  </StrictMode>
+  </React.StrictMode>
 )
